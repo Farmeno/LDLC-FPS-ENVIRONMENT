@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class projectilejoueur : MonoBehaviour
 {
     public GameObject Sphere;
-    public GameObject Cube;
     Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
@@ -31,7 +30,6 @@ public class projectilejoueur : MonoBehaviour
             Vector3 positionProjectile2 = positionCamera + (2*directionCamera);
             Vector3 positionProjectile = positionJoueur + positionSphere;
             Instantiate(Sphere, positionProjectile2, Camera.main.transform.rotation);
-            Vector3 positionCube = Cube.transform.position;
         }
     }
 }
