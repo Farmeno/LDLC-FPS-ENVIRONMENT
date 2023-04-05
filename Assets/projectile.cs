@@ -2,26 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     Rigidbody rigidbody;
     
-    // Start is called before the first frame update
+    //LA VITESSE DE LA PLATEFORME
+    public float speed = 2f;
+    //ON DONNE UNE DIRECTION DE DEPART A LA PLATEFORME
+    private Vector3 direction;
     void Start()
     {
+        //RECUPERE ET ON STOCKE UNE REFERENCE VERS LE RIGIDBODY
         rigidbody = GetComponent<Rigidbody>();
-        
     }
 
-    
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 direction = transform.forward;
+        //ON RECUPERE ET ON STOCKE LA POSITION ACTUELLE DE LA PLATEFORME
         Vector3 currentPosition = transform.position;
-        float speed = 10f;
+        direction = transform.forward;
+
+        //CALCUL DE LA NOUVELLE POSITION DE MA PLATEFORME 
         Vector3 newPosition = currentPosition + direction * speed * Time.deltaTime;
+
+        //ON APPLOQUE LA NOUVELLE POSITION
         rigidbody.MovePosition(newPosition);
     }
 }
