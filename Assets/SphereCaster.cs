@@ -7,15 +7,11 @@ public class SphereCaster : MonoBehaviour
     public float sphereRadius;
     public float Distance;
     public LayerMask layerMask;
-    public GameObject Hélico;
-    public GameObject currentHitObject;
-    private Vector3 PositionJoueur;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        PositionJoueur = currentHitObject.transform.position;
     }
     
 
@@ -27,8 +23,8 @@ public class SphereCaster : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(origin, sphereRadius, direction, out hit, Distance, layerMask, QueryTriggerInteraction.UseGlobal))
         {
-            currentHitObject = hit.transform.gameObject;
-            currentHitObject.transform.position = PositionJoueur; 
+            GameObject currentHitObject = hit.transform.gameObject;
+            currentHitObject.transform.position = GameManager.Instance.spawnPoint.position; 
         }
     }
 }
