@@ -6,9 +6,9 @@ public class Movement2 : MonoBehaviour
 
     private float timer = 0.0f; // Chronomètre
 
-    private Color red = Color.red;
-    private Color green = Color.green;
-    private Color black = Color.black;
+    public Color red = Color.red;
+    public Color green = Color.green;
+    public Color black = Color.black;
 
     void Start()
     {

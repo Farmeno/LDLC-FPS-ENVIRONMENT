@@ -50,8 +50,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10.034115
-  m_SpotAngle: 42.973633
+  m_Range: 150
+  m_SpotAngle: 18.638527
   m_InnerSpotAngle: 18.638527
   m_CookieSize: 10
   m_Shadows:
@@ -131,13 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e32adc77aa07e42859542062a4df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereRadius: 1
-  Distance: 150
+  sphereRadius: 50
+  Distance: 1500
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  "H\xE9lico": {fileID: 6331260824398738916}
-  currentHitObject: {fileID: 0}
+  isWorking: 1
 --- !u!33 &6331260824398738913
 MeshFilter:
   m_ObjectHideFlags: 0

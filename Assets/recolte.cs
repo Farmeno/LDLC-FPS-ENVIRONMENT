@@ -11,6 +11,7 @@ public class recolte : MonoBehaviour
     public Camera camera;
     public int score;
     public string affiche_score;
+    public float maxDistance = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +29,10 @@ public class recolte : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.collider.CompareTag("Cube"))
+                if(hit.collider.CompareTag("Cube") && Vector3.Distance(Camera.main.transform.position, hit.collider.transform.position)<=maxDistance)
                 {
 
-                Debug.Log("Hello");
+                Debug.Log("Bravo !");
                 score += 1;
                 affiche_score = score + "/?" ;
                 GetComponent<TMP_Text>().text = affiche_score;
