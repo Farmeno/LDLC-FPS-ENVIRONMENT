@@ -7,8 +7,8 @@ public class SphereCaster : MonoBehaviour
     public float sphereRadius;
     public float Distance;
     public LayerMask layerMask;
-    
 
+    public bool isWorking = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,9 @@ public class SphereCaster : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isWorking)
+            return; 
+
         Vector3 origin = transform.position;
         Vector3 direction = transform.forward;
         RaycastHit hit;
