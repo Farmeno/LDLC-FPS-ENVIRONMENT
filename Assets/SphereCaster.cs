@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -8,9 +9,12 @@ public class SphereCaster : MonoBehaviour
     float sphereRadius;
     public float Distance;
     public LayerMask layerMask;
+    float morts = 0;
+    public TMP_Text morts2;
 
     public bool isWorking = true;
     Light _light;
+
     Light Light
     {
         get
@@ -20,16 +24,17 @@ public class SphereCaster : MonoBehaviour
             return _light;
         }
     }
-    
-    private void Update()
-    {
 
+    void Update()
+    {
         sphereRadius = Mathf.Tan(Light.spotAngle * 0.5f * Mathf.Deg2Rad) * transform.position.y;
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (!isWorking)
             return; 
 
@@ -38,8 +43,14 @@ public class SphereCaster : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(origin, sphereRadius, direction, out hit, Distance, layerMask, QueryTriggerInteraction.UseGlobal))
         {
+            Debug.Log("SALUT");
             GameObject currentHitObject = hit.transform.gameObject;
+            Debug.Log(currentHitObject);
+
             currentHitObject.transform.position = GameManager.Instance.spawnPoint.position;
+            morts = morts + 1;
+            morts2.text = "Morts = "+morts;
+
         }
     }
 
