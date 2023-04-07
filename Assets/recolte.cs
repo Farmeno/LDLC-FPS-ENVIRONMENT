@@ -38,13 +38,13 @@ public class recolte : MonoBehaviour
 
                         Debug.Log("Bravo !");
                         score += 1;
-                        affiche_score = score + "/?";
+                        affiche_score = score + "/10";
                         GetComponent<TMP_Text>().text = affiche_score;
 
                         Destroy(hit.collider.gameObject, 1f);
 
                     }
-                    if (score > 3)
+                    if (score > 10)
                     {
                         affiche_score = score + "/" + score;
                         GetComponent<TMP_Text>().text = affiche_score;

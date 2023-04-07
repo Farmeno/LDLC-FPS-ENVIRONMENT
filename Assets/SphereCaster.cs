@@ -15,6 +15,7 @@ public class SphereCaster : MonoBehaviour
     public bool isWorking = true;
     Light _light;
 
+    public Transform spawnPoint;
     Light Light
     {
         get
@@ -47,7 +48,7 @@ public class SphereCaster : MonoBehaviour
             GameObject currentHitObject = hit.transform.gameObject;
             Debug.Log(currentHitObject);
 
-            currentHitObject.transform.position = GameManager.Instance.spawnPoint.position;
+            currentHitObject.transform.position = spawnPoint!=null? spawnPoint.position: GameManager.Instance.spawnPoint.position;
             morts = morts + 1;
             morts2.text = "Morts = "+morts;
 
